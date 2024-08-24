@@ -1,31 +1,32 @@
 package br.com.TaskManager.entities;
 
-
 import br.com.TaskManager.enums.TaskStatusEnum;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.Data;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @Entity
-@Table(name = "tasks")
+@Table(name = "Tasks")
 public class Task {
 
     @Id
-    @Column(name = "task_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "task_id")
     private Long id;
-    @Column(name = "title")
+
     private String title;
+
     @Column(name = "task_description")
     private String description;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "task_status")
     private TaskStatusEnum status;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 }

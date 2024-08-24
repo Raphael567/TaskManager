@@ -1,8 +1,11 @@
 package br.com.TaskManager.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum TaskStatusEnum {
     PENDENTE("Pendente"),
-    EM_ANDAMENTO("Em andamento"),
+    EM_ANDAMENTO("Em Andamento"),
     CONCLUÍDA("Concluída");
 
     private String status;
@@ -11,7 +14,12 @@ public enum TaskStatusEnum {
         this.status = status;
     }
 
-    public String getStatus() {
-        return status;
+    public static TaskStatusEnum fromString(String status) {
+        for (TaskStatusEnum taskStatusEnum : TaskStatusEnum.values()) {
+            if (taskStatusEnum.status.equalsIgnoreCase(status)) {
+                return taskStatusEnum;
+            }
+        }
+        throw new IllegalArgumentException("Status inválido: " + status);
     }
 }
