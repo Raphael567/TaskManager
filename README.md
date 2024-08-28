@@ -10,8 +10,8 @@ Este repositório contém um projeto de gerenciamento de tarefas em desenvolvime
 
 ### 2. **Desenvolvimento Backend**
 
-- [ ] **Segurança da Aplicação**: Implementar `spring-security-test` para a segurança da aplicação.
-- [ ] **EndPoints da API**: Implementar os Endpoints da API rest do Spring Boot, definindo os métodos create, read, update e delete (CRUD)
+- [x] **EndPoints da API**: Implementar os Endpoints da API rest do Spring Boot, definindo os métodos create, read, update e delete (CRUD)
+- [ ] **Tratamento de erros da API**: Implementar tratamento de erros da requisição para um código mais flexível
 
 ### 3. **Desenvolvimento Frontend**
 
