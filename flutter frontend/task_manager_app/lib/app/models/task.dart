@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 import '../enums/task_status.dart';
 
 class Task {
-  final String id;
+  final int id;
   final String title;
   final String description;
   final TaskStatus status;
@@ -26,8 +26,8 @@ class Task {
       title: json['title'],
       description: json['description'],
       status: TaskStatusExtension.fromString(json['status']),
-      createdAt: json['createdAt'],
-      updatedAt: json['updatedAt']
+      createdAt: _parseDate(json['createdAt']),
+      updatedAt: _parseDate(json['updatedAt'])
     );
   }
 

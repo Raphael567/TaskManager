@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/tasks")
+@CrossOrigin(origins = "http://localhost:8000")
 public class TaskController {
 
     @Autowired

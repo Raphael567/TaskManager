@@ -27,3 +27,5 @@ Values('Testando', 'Descrição da tarefa', 'CONCLUIDA', CONVERT(date, GETDATE()
 
 INSERT INTO Tasks (title, task_description, task_status, updated_at)
 Values('Testando Alter Table', 'Descrição da tarefa', 'CONCLUIDA', CONVERT(date, GETDATE()));
+
+SELECT * FROM Tasks
