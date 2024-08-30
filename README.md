@@ -1,5 +1,5 @@
 # TaskManager_API
-Este repositório contém um projeto de gerenciamento de tarefas em desenvolvimento, construído com Spring Boot para a API REST e Flutter para o frontend. O banco de dados utilizado é o SQL Server.
+Este repositório contém um projeto de gerenciamento de tarefas em desenvolvimento, construído com Spring Boot para a API REST, SQL Server para o banco de dados e o Flutter para o frontend
 
 ## Próximos Passos
 
