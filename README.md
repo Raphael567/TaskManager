@@ -15,5 +15,5 @@ Este repositório contém um projeto de gerenciamento de tarefas em desenvolvime
 
 ### 3. **Desenvolvimento Frontend**
 
-- [❌] **Interface do Usuário**: Desenvolver a tela e as funcionalidades do Flutter para consumir a API REST
-- [❌] **Integração com a API**: Implementar a lógica para consumir os endpoints da API e exibir os dados no aplicativo
+- [✔] **Integração com a API**: Implementar a lógica para realizar a conexão com a API
+- [❌] **Interface do Usuário**: Desenvolver a tela e as funcionalidades do Flutter para consumir a API REST e os seus endpoints
