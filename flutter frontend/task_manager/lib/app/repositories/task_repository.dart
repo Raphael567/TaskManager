@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:task_manager_app/app/services/task_service.dart';
+import '../services/task_service.dart';
 
 import '../models/task.dart';
 

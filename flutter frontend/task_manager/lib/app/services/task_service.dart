@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:task_manager_app/app/models/task.dart';
-import 'package:task_manager_app/app/services/api_service.dart';
+import '../models/task.dart';
+import 'api_service.dart';
 
 class TaskService {
   final ApiService apiService;
