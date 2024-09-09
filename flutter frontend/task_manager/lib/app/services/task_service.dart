@@ -1,14 +1,14 @@
 import 'dart:convert';
-
-import '../models/task.dart';
 import 'api_service.dart';
+import 'package:http/http.dart' as http;
+import '../models/task.dart';
 
 class TaskService {
   final ApiService apiService;
 
   TaskService(this.apiService);
 
-  //Obtém as tarefas
+  // Obtém as tarefas
   Future<List<Task>> getAllTasks() async {
     final response = await apiService.get('/tasks');
 
@@ -20,7 +20,7 @@ class TaskService {
     }
   }
 
-  //Obtém tarefa pelo id
+  // Obtém tarefa pelo id
   Future<Task> getTaskById(String id) async {
     final response = await apiService.get('/tasks/$id');
 
@@ -31,7 +31,7 @@ class TaskService {
     }
   }
 
-  //Cria nova tarefa
+  // Cria nova tarefa
   Future<Task> createTask(Task task) async {
     final response = await apiService.post('/tasks', task.toJson());
 
@@ -42,23 +42,32 @@ class TaskService {
     }
   }
 
-  //Atualiza tarefa existente
-  Future<Task> updateTask(String id,Task task) async {
+  // Atualiza tarefa existente
+  Future<Task> updateTask(String id, Task task) async {
     final response = await apiService.put('/tasks/$id', task.toJson());
 
-    if(response.statusCode == 201) {
+    if(response.statusCode == 200) {
       return Task.fromJson(jsonDecode(response.body));
     } else {
       throw Exception("Falha ao atualizar tarefa");
     }
   }
 
-  //Deleta tarefa
+  // Deleta tarefa
   Future<void> deleteTask(String id) async {
     final response = await apiService.delete('/tasks/$id');
 
     if(response.statusCode != 204) {
       throw Exception("Falha ao deletar Tarefa");
+    }
+  }
+
+  // Simulação de Stream, você deve substituir pelo seu método real para obter um Stream
+  Stream<List<Task>> getTasksStream() async* {
+    while (true) {
+      await Future.delayed(Duration(seconds: 2)); // Simulação de delay
+      final tasks = await getAllTasks();
+      yield tasks;
     }
   }
 }

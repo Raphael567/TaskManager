@@ -1,18 +1,22 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import '../services/task_service.dart';
-
 import '../models/task.dart';
 
-class TaskRespository {
+class TaskRepository {
   final TaskService taskService;
 
-  TaskRespository(this.taskService);
+  TaskRepository(this.taskService);
+
+  Stream<List<Task>> getTasksStream() {
+    return taskService.getTasksStream();
+  }
+
 
   Future<List<Task>> getAllTasks() async {
     try {
       return await taskService.getAllTasks();
     } catch (e) {
-      debugPrint('Erro ao requisitar Tarefa: $e');
+      debugPrint('Error retrieving tasks: $e');
       rethrow;
     }
   }
@@ -21,7 +25,7 @@ class TaskRespository {
     try {
       return await taskService.createTask(task);
     } catch(e) {
-      debugPrint('Erro ao criar tarefa: $e');
+      debugPrint('Error creating task: $e');
       rethrow;
     }
   }
@@ -30,7 +34,7 @@ class TaskRespository {
     try {
       return await taskService.updateTask(id, task);
     } catch(e) {
-      debugPrint('Erro ao atualizar tarefa: $e');
+      debugPrint('Error updating task: $e');
       rethrow;
     }
   }
@@ -39,7 +43,7 @@ class TaskRespository {
     try {
       return await taskService.deleteTask(id);
     } catch(e) {
-      debugPrint('Erro ao deletar tarefa: $e');
+      debugPrint('Error deleting task: $e');
       rethrow;
     }
   }
